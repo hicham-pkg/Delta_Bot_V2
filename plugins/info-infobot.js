@@ -97,7 +97,8 @@ return [h, m, s].map(v => v.toString().padStart(2, 0) ).join(':')}Call ? '*activ
 ╠═〘 ᴛʜᴇ ᴅᴇʟᴛᴀ - ʙᴏᴛ 〙 ═
 `.trim() 
 let aa = { quoted: m, userJid: conn.user.jid }
-
+let res = generateWAMessageFromContent (m.chat, {liveLocationMessage: {degreesLatitude: 0, degreesLongitude: 0, caption: info, secuenceNumber: "0", contextInfo: {mentionedJid: conn.parseMention()}}}, aa)
+conn.relayMessage(m.chat, res.message, {})
 }
 handler.help = ['infobot', 'speed']
 handler.tags = ['info', 'tools']
