@@ -13,7 +13,7 @@ let handler = async (
     let vn = "./media/menu.mp3"
     let pp = imagen4
     let img = await (
-      await fetch("https://i.ibb.co/4gQfXjW/IMG-20220325-WA0078.jpg")
+      await fetch("https://i.ibb.co/k1mzvps/DeltaBot.jpg")
     ).buffer()
     let d = new Date(new Date() + 3600000)
     let locale = "ar"
@@ -120,7 +120,7 @@ DeltaBot by Alfa
           title: "DeltaBot",
           body: null,
           thumbnail: img,
-          sourceUrl: `https://i.ibb.co/4gQfXjW/IMG-20220325-WA0078.jpg`,
+          sourceUrl: `https://i.ibb.co/k1mzvps/DeltaBot.jpg`,
         },
       },
     }

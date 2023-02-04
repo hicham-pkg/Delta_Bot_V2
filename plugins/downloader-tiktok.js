@@ -1,24 +1,22 @@
-/* Creditos a FG de Dylux-fg (Bot) */
-
 import fg from 'api-dylux' 
 import { generateWAMessageFromContent } from '@adiwajshing/baileys'
 import { tiktokdl, tiktokdlv2, tiktokdlv3 } from '@bochilteam/scraper'
 let handler = async (m, { conn, text, args, usedPrefix, command}) => {
-if (!text) throw `*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝙽𝙻𝙰𝙲𝙴 𝙳𝙴 𝚃𝙸𝙺𝚃𝙾𝙺 𝙵𝙰𝙻𝚃𝙰𝙽𝚃𝙴, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙸𝙽𝙶𝚁𝙴𝚂𝙴 𝙴𝙽 𝙴𝙽𝙻𝙰𝙲𝙴/𝙻𝙸𝙽𝙺 𝙳𝙴 𝙰𝙻𝙶𝚄𝙽 𝚅𝙸𝙳𝙴𝙾 𝙳𝙴 𝚃𝙸𝙺𝚃𝙾𝙺*\n\n*—◉ 𝙴𝙹𝙴𝙼𝙿𝙻𝙾:*\n*${usedPrefix + command}* https://vm.tiktok.com/ZMFb4BXVd/`
-if (!/(?:https:?\/{2})?(?:w{3}|vm|vt|t)?\.?tiktok.com\/([^\s&]+)/gi.test(text)) throw `*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝙽𝙻𝙰𝙲𝙴 𝙳𝙴 𝚃𝙸𝙺𝚃𝙾𝙺 𝙸𝙽𝙲𝙾𝚁𝚁𝙴𝙲𝚃𝙾, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙸𝙽𝙶𝚁𝙴𝚂𝙴 𝙴𝙽 𝙴𝙽𝙻𝙰𝙲𝙴/𝙻𝙸𝙽𝙺 𝙳𝙴 𝙰𝙻𝙶𝚄𝙽 𝚅𝙸𝙳𝙴𝙾 𝙳𝙴 𝚃𝙸𝙺𝚃𝙾𝙺*\n\n*—◉ 𝙴𝙹𝙴𝙼𝙿𝙻𝙾:*\n*${usedPrefix + command}* https://vm.tiktok.com/ZMFb4BXVd/`
+if (!text) throw `*[❗𝐈𝐍𝐅𝐎❗] رابط tiktok مفقود ، يرجى إدخال رابط أي فيديو tiktok*\n\n*—◉ مثال:*\n*${usedPrefix + command}* https://vm.tiktok.com/ZMYYLtsdN/`
+if (!/(?:https:?\/{2})?(?:w{3}|vm|vt|t)?\.?tiktok.com\/([^\s&]+)/gi.test(text)) throw `*[❗𝐈𝐍𝐅𝐎❗] رابط tiktok مفقود ، يرجى إدخال رابط أي فيديو tiktok*\n\n*—◉ مثال:*\n*${usedPrefix + command}* https://vm.tiktok.com/ZMYYLtsdN/`
 let texto = `*[❗] @${m.sender.split`@`[0]} انتظر لحظة بينما أرسل فيديو تيكوتوك الخاص بك*`
 try {
 let aa = { quoted: m, userJid: conn.user.jid }
-let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: texto, contextInfo: { externalAdReply: { title: 'ᴛʜᴇ ᴍʏsᴛɪᴄ - ʙᴏᴛ', body: null, thumbnail: imagen1, sourceUrl: 'https://i.ibb.co/4gQfXjW/IMG-20220325-WA0078.jpg' }, mentionedJid: [m.sender]}}}, aa)    
+let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: texto, contextInfo: { externalAdReply: { title: 'ᴛʜᴇ ᴅᴇʟᴛᴀ - ʙᴏᴛ', body: null, thumbnail: imagen1, sourceUrl: 'https://i.ibb.co/k1mzvps/DeltaBot.jpg' }, mentionedJid: [m.sender]}}}, aa)    
 conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id, mentions: [m.sender] })
 let p = await fg.tiktok(args[0]) 
 let buttons = [{ buttonText: { displayText: '♫ 𝙰𝚄𝙳𝙸𝙾 ♫' }, buttonId: `${usedPrefix}tomp3` }]
-let te = `*𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴:* ${p.author || 'Indefinido'}`
+let te = `*𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴:* ${p.author || 'غير معرف'}`
 await conn.sendMessage(m.chat, { video: { url: p.nowm}, caption: te, footer: wm, buttons }, { quoted: m })  
 } catch {  	
 try { 
 let aa2 = { quoted: m, userJid: conn.user.jid }
-let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: texto, contextInfo: { externalAdReply: { title: 'ᴛʜᴇ ᴍʏsᴛɪᴄ - ʙᴏᴛ', body: null, thumbnail: imagen1, sourceUrl: 'https://i.ibb.co/4gQfXjW/IMG-20220325-WA0078.jpg' }, mentionedJid: [m.sender]}}}, aa2)    
+let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: texto, contextInfo: { externalAdReply: { title: 'ᴛʜᴇ ᴅᴇʟᴛᴀ - ʙᴏᴛ', body: null, thumbnail: imagen1, sourceUrl: 'https://i.ibb.co/k1mzvps/DeltaBot.jpg' }, mentionedJid: [m.sender]}}}, aa2)    
 conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id, mentions: [m.sender] })
 const { author: { nickname }, video, description } = await tiktokdl(args[0]).catch(async _ => await tiktokdlv2(args[0])).catch(async _ => await tiktokdlv3(args[0]))
 const url = video.no_watermark2 || video.no_watermark || 'https://tikcdn.net' + video.no_watermark_raw || video.no_watermark_hd
