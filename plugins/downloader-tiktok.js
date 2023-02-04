@@ -20,7 +20,7 @@ let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: t
 conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id, mentions: [m.sender] })
 const { author: { nickname }, video, description } = await tiktokdl(args[0]).catch(async _ => await tiktokdlv2(args[0])).catch(async _ => await tiktokdlv3(args[0]))
 const url = video.no_watermark2 || video.no_watermark || 'https://tikcdn.net' + video.no_watermark_raw || video.no_watermark_hd
-let buttons = [{ buttonText: { displayText: '♫ tomp3 ♫' }, buttonId: `${usedPrefix}tomp3` }]
+let buttons = [{ buttonText: { displayText: '♫ 𝙰𝚄𝙳𝙸𝙾 ♫' }, buttonId: `${usedPrefix}tomp3` }]
 let cap = `*𝙽𝙸𝙲𝙺𝙽𝙰𝙼𝙴:* ${nickname || 'Indefinido'}`
 await conn.sendMessage(m.chat, { video: { url: url}, caption: cap, footer: wm, buttons }, { quoted: m })  
 } catch {
