@@ -47,6 +47,7 @@ conn.relayMessage(m.chat, res.message, {})
 handler.help = ['infobot', 'speed']
 handler.tags = ['owner']
 handler.command = /^(ping|speed|infobot)$/i
+handler.rowner = true
 export default handler
 
 function clockString(ms) {
