@@ -60,8 +60,6 @@ let handler = async (
 
 *│*  ⸙ .*insta*  التحميل من الانستغرام
 
-*│*  ⸙ .*igstory*  intagram Story
-
 *│*  ⸙ .*gdrive*  التحميل من غوغل درايف
 
 *│*  ⸙ .*tts*  تحويل اي نص لاديو
