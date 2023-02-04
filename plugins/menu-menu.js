@@ -93,6 +93,18 @@ let handler = async (
 *│*  ⸙ .*scircle*  ملصق دائري
 
 *│*  ⸙ .*Tagall*  الاشارة للكل
+
+*╭────────────────────*
+
+*│*  Owner command
+
+*│*  ⸙ .*infobot*
+
+*│*  ⸙ .*update*
+
+*╰────────────────────*
+
+
 *╰────────────────────*
 
 DeltaBot by Alfa
