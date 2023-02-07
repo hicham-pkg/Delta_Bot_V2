@@ -32,7 +32,7 @@ if (isRunning) return
 isRunning = true
 let args = [join(__dirname, file), ...process.argv.slice(2)]
 
-say('Ajuste la pantalla para escanear el codigo QR', {
+say('Adjust the screen to scan the QR code', {
 font: 'console',
 align: 'center',
 gradient: ['red', 'magenta']})
