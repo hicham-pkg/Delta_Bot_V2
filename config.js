@@ -423,18 +423,19 @@ global.flaaa = [
 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text=']
 //********Tiempo***************
 global.d = new Date(new Date + 3600000)
-global.locale = 'es'
-global.dia = d.toLocaleDateString(locale, { weekday: 'long' })
-global.fecha = d.toLocaleDateString('en', { day: 'numeric', month: 'numeric', year: 'numeric' })
-global.mes = d.toLocaleDateString('en', { month: 'long' })
-global.año = d.toLocaleDateString('en', { year: 'numeric' })
-global.tiempo = d.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true })
+global.locale = 'en'
+global.days = d.toLocaleDateString(locale, { weekday: 'long' })
+global.date = d.toLocaleDateString(locale, { day: 'numeric', month: 'numeric', year: 'numeric' })
+global.month = d.toLocaleDateString(locale, { month: 'long' })
+global.year = d.toLocaleDateString(locale, { year: 'numeric' })
+global.time = d.toLocaleString(locale, { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true })
+
 //*****************************
-global.wm2 = `▸ ${dia} ${fecha}\n▸ 𝚃𝚑𝚎 𝙼𝚢𝚜𝚝𝚒𝚌 - 𝙱𝚘𝚝`
+global.wm2 = `▸ ${days} ${date}\n▸ ᴛʜᴇ ᴅᴇʟᴛᴀ - ʙᴏᴛ`
 global.gt = 'DELTABOT 𝖡𝖸 ALFA'
-global.mysticbot = 'DELTABOT 𝖡𝖸 ALFA'
-global.md = 'https://github.com/BrunoSobrino/TheMystic-Bot-MD'
-global.mysticbot = 'https://github.com/BrunoSobrino/TheMystic-Bot-MD'
+global.deltabot = 'DELTABOT 𝖡𝖸 ALFA'
+global.md = 'https://github.com/hicham-pkg/Delta_Bot_V1'
+global.deltabot = 'https://github.com/hicham-pkg/Delta_Bot_V1'
 global.waitt = '*[❗]  المرجو الانتظار ...*'
 global.waittt = '*[❗] المرجو الانتظار ...*'
 global.waitttt = '*[❗] المرجو الانتظار قليلا...*'
