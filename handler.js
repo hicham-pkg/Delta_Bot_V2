@@ -70,7 +70,7 @@ export async function handler(chatUpdate) {
                 }
                 if (!isNumber(user.afk)) user.afk = -1
 	        if (!('autolevelup' in user))  user.autolevelup = true
-	        if (!('role' in user)) user.role = 'Novato'
+	        if (!('role' in user)) user.role = 'Rookie'
                 if (!isNumber(user.agility)) user.agility = 0
                 if (!isNumber(user.anakanjing)) user.anakanjing = 0
                 if (!isNumber(user.anakcentaur)) user.anakcentaur = 0
@@ -466,10 +466,10 @@ export async function handler(chatUpdate) {
                 if (!isNumber(user.wood)) user.wood = 0
                 if (!isNumber(user.wortel)) user.wortel = 0
                 if (!user.lbars) user.lbars = '[▒▒▒▒▒▒▒▒▒]'
-                if (!user.job) user.job = 'Desempleo'
+                if (!user.job) user.job = 'Unemployment'
                 if (!user.premium) user.premium = false
                 if (!user.premium) user.premiumTime = 0
-                if (!user.rtrofi) user.rtrofi = 'Bronce'
+                if (!user.rtrofi) user.rtrofi = 'Bronze'
             } else
                 global.db.data.users[m.sender] = {
 		            afk: -1,
@@ -804,9 +804,9 @@ export async function handler(chatUpdate) {
                     rhinoceroslastfeed: 0,
                     rock: 0,
                     roket: 0,
-                    role: 'Novato',
+                    role: 'Rookie',
                     roti: 0,
-                    rtrofi: 'bronce',
+                    rtrofi: 'Bronze',
                     rubah: 0,
                     rubahlastclaim: 0,
                     rumahsakit: 0,
@@ -1004,7 +1004,7 @@ export async function handler(chatUpdate) {
                     for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
                         let data = (await conn.onWhatsApp(jid))[0] || {}
                         if (data.exists)
-                            m.reply(`*[ ⚠️ 𝚁𝙴𝙿𝙾𝚁𝚃𝙴 𝙳𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙲𝙾𝙽 𝙵𝙰𝙻𝙻𝙾𝚂 ⚠️ ]*\n\n*—◉ 𝙿𝙻𝚄𝙶𝙸𝙽:* ${name}\n*—◉ 𝚄𝚂𝚄𝙰𝚁𝙸𝙾:* ${m.sender}\n*—◉ 𝙲𝙾𝙼𝙰𝙽𝙳𝙾:* ${m.text}\n\n*—◉ 𝙴𝚁𝚁𝙾𝚁:*\n\`\`\`${format(e)}\`\`\`\n\n*[❗] 𝚁𝙴𝙿𝙾𝚁𝚃𝙴𝙻𝙾 𝙰𝙻 𝙲𝚁𝙴𝙰𝙳𝙾𝚁 𝙳𝙴𝙻 𝙱𝙾𝚃 𝙿𝙰𝚁𝙰 𝙳𝙰𝚁𝙻𝙴 𝚄𝙽𝙰 𝚂𝙾𝙻𝚄𝙲𝙸𝙾𝙽, 𝙿𝚄𝙴𝙳𝙴 𝚄𝚂𝙰𝚁 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 #reporte*`.trim(), data.jid)
+                            m.reply(`*[ ⚠️ Command report failed ⚠️ ]*\n\n*—◉ Plugin:* ${name}\n*—◉ User:* ${m.sender}\n*—◉ Command:* ${m.text}\n\n*—◉ Error:*\n\`\`\`${format(e)}\`\`\`\n\n*[❗] Report it to the creator of the bot to give him a solution. You can use the command #reporte*`.trim(), data.jid)
                     }
                 }
             }
@@ -1130,11 +1130,11 @@ export async function handler(chatUpdate) {
                 else
                     m.exp += xp
                 if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-                    this.reply(m.chat, `*[❗𝐈𝐍𝐅𝐎 ❗] 𝚂𝚄𝚂 𝙳𝙸𝙰𝙼𝙰𝙽𝚃𝙴𝚂 𝚂𝙴 𝙷𝙰𝙽 𝙰𝙶𝙾𝚃𝙰𝙳𝙾, 𝙿𝚄𝙴𝙳𝙴 𝙲𝙾𝙼𝙿𝚁𝙰𝚁 𝙼𝙰𝚂 𝚄𝚂𝙰𝙽𝙳𝙾 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 ${usedPrefix}buy <cantidad>*`, m)
+                    this.reply(m.chat, `*[❗𝐈𝐍𝐅𝐎 ❗] your diamonds have run out, you can buy more using the command ${usedPrefix}buy <cantidad>*`, m)
                     continue // Limit habis
                 }
                 if (plugin.level > _user.level) {
-                    this.reply(m.chat, `*[❗𝐈𝐍𝐅𝐎 ❗] 𝚂𝙴 𝚁𝙴𝚀𝚄𝙸𝙴𝚁𝙴 𝙴𝙻 𝙽𝙸𝚅𝙴𝙻 ${plugin.level} 𝙿𝙰𝚁𝙰 𝚄𝚂𝙰𝚁 𝙴𝚂𝚃𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾. 𝚃𝚄 𝙽𝙸𝚅𝙴𝙻 𝙴𝚂 ${_user.level}*`, m)
+                    this.reply(m.chat, `*[❗𝐈𝐍𝐅𝐎 ❗] level is required ${plugin.level} To use this command. your level is ${_user.level}*`, m)
                     continue // If the level has not been reached
                 }
                 let extra = {
@@ -1176,7 +1176,7 @@ export async function handler(chatUpdate) {
                             for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
                                 let data = (await conn.onWhatsApp(jid))[0] || {}
                                 if (data.exists)
-                                    m.reply(`*[ ⚠️ 𝚁𝙴𝙿𝙾𝚁𝚃𝙴 𝙳𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙲𝙾𝙽 𝙵𝙰𝙻𝙻𝙾𝚂 ⚠️ ]*\n\n*—◉ 𝙿𝙻𝚄𝙶𝙸𝙽:* ${m.plugin}\n*—◉ 𝚄𝚂𝚄𝙰𝚁𝙸𝙾:* ${m.sender}\n*—◉ 𝙲𝙾𝙼𝙰𝙽𝙳𝙾:* ${usedPrefix}${command} ${args.join(' ')}\n\n\`\`\`${text}\`\`\`\n\n*[❗] 𝚁𝙴𝙿𝙾𝚁𝚃𝙴𝙻𝙾 𝙰𝙻 𝙲𝚁𝙴𝙰𝙳𝙾𝚁 𝙳𝙴𝙻 𝙱𝙾𝚃 𝙿𝙰𝚁𝙰 𝙳𝙰𝚁𝙻𝙴 𝚄𝙽𝙰 𝚂𝙾𝙻𝚄𝙲𝙸𝙾𝙽, 𝙿𝚄𝙴𝙳𝙴 𝚄𝚂𝙰𝚁 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 #reporte*`.trim(), data.jid)
+                                    m.reply(`*[ ⚠️ Command report failed ⚠️ ]*\n\n*—◉ Plugin:* ${m.plugin}\n*—◉ User:* ${m.sender}\n*—◉ Command:* ${usedPrefix}${command} ${args.join(' ')}\n\n\`\`\`${text}\`\`\`\n\n*[❗] Report it to the creator of the bot to give him a solution, you can use the command #reporte*`.trim(), data.jid)
                             }
                         m.reply(text)
                     }
@@ -1190,7 +1190,7 @@ export async function handler(chatUpdate) {
                         }
                     }
                     if (m.limit)
-                        m.reply(+m.limit + ' 𝐃𝐈𝐀𝐌𝐀𝐍𝐓𝐄 💎 𝐔𝐒𝐀𝐃𝐎')
+                        m.reply(+m.limit + ' Diamond 💎 Used')
                 }
                 break
             }
@@ -1277,7 +1277,7 @@ export async function participantsUpdate({ id, participants, action }) {
                     } catch (e) {
                     } finally {
                     let apii = await this.getFile(pp)
-                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*𝚂𝙸𝙽 𝙳𝙴𝚂𝙲𝚁𝙸𝙿𝙲𝙸𝙾𝙽*') :
+                        text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*No description*') :
                               (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
                         
 //this.sendButton(id, text, groupMetadata.subject, apii.data, [[(action == 'add' ? '💫 𝙱𝙸𝙴𝙽𝚅𝙴𝙽𝙸𝙳𝙾 💫' : '☠ 𝙰𝙳𝙸𝙾𝚂 ☠'), (action == 'add' ? '#welcomegc' : '#byegc')], ['♦ 𝙼𝙴𝙽𝚄 𝙳𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾𝚂 ♦', `#menu`]], null, {mentions: this.parseMention(text)})
@@ -1330,10 +1330,10 @@ export async function callUpdate(callUpdate) {
     for (let nk of callUpdate) {
     if (nk.isGroup == false) {
     if (nk.status == "offer") {
-    let callmsg = await this.reply(nk.from, `Hola *@${nk.from.split('@')[0]}*, las ${nk.isVideo ? 'videollamadas' : 'llamadas'} no están permitidas, serás bloqueado.\n-\nSi accidentalmente llamaste póngase en contacto con mi creador para que te desbloquee!`, false, { mentions: [nk.from] })
+    let callmsg = await this.reply(nk.from, `Hi *@${nk.from.split('@')[0]}*, the ${nk.isVideo ? 'video calls' : 'calls'} are not allowed, you will be blocked.\n-\nIf you accidentally called contact my creator to unlock you!`, false, { mentions: [nk.from] })
     //let data = global.owner.filter(([id, isCreator]) => id && isCreator)
     //await this.sendContact(nk.from, data.map(([id, name]) => [id, name]), false, { quoted: callmsg })
-    let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;Alfa Stellar 👑;;;\nFN:Alfa Stellar 👑\nORG:Alfa Stellar 👑\nTITLE:\nitem1.TEL;waid=5219992095479:+521 999 209 5479\nitem1.X-ABLabel:Alfa Stellar 👑\nX-WA-BIZ-DESCRIPTION:[❗] ᴄᴏɴᴛᴀᴄᴛᴀ ᴀ ᴇsᴛᴇ ɴᴜᴍ ᴘᴀʀᴀ ᴄᴏsᴀs ɪᴍᴘᴏʀᴛᴀɴᴛᴇs.\nX-WA-BIZ-NAME:Alfa Stellar 👑\nEND:VCARD`
+    let vcard = `BEGIN:VCARD\nVERSION:3.0\nN:;Alfa Stellar 👑;;;\nFN:Alfa Stellar 👑\nORG:Alfa Stellar 👑\nTITLE:\nitem1.TEL;waid=212707400335:+212 707 400335\nitem1.X-ABLabel:Alfa Stellar 👑\nX-WA-BIZ-DESCRIPTION:[❗] Contact this number for important things.\nX-WA-BIZ-NAME:Alfa Stellar 👑\nEND:VCARD`
     await this.sendMessage(nk.from, { contacts: { displayName: 'Alfa Stellar 👑', contacts: [{ vcard }] }}, {quoted: callmsg})
     await this.updateBlockStatus(nk.from, 'block')
     }
@@ -1354,9 +1354,9 @@ export async function deleteUpdate(message) {
             return
         await this.reply(msg.chat, `
 ━━━━⬣  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀  ⬣━━━━
-*■ Nombre:* @${participant.split`@`[0]}
-*■ Enviando el mensaje..*
-*■ Para desactivar esta función escriba el comando:*
+*■ Name:* @${participant.split`@`[0]}
+*■ Sending the message...*
+*■ To disable this feature type the command:*
 *—◉ #disable antidelete*
 *—◉ #enable delete*
 ━━━━⬣  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀  ⬣━━━━
@@ -1379,7 +1379,7 @@ global.dfail = (type, m, conn) => {
         private: '*[ ⚠️ Ａｌｅｒｔ ⚠️ ] this command can only be used in the bots private chat*',
         admin: '*[ ⚠️ Ａｌｅｒｔ ⚠️ ] this command can only be used by group admins*',
         botAdmin: '*[ ⚠️ Ａｌｅｒｔ ⚠️ ] To be able to use this command it is necessary that bot be admin, turn on admin this number*',
-        unreg: '*[ 🛑 𝐇𝐄𝐘!! stop, you are not registered 🛑 ]*\n\n*—◉ to use this command you must register, use the command*\n*➣ #verificar nombre.edad*',
+        unreg: '*[ 🛑 Hey!! stop, you are not registered 🛑 ]*\n\n*—◉ to use this command you must register, use the command*\n*➣ #verificar nombre.edad*',
         restrict: '*[ ⚠️ Ａｌｅｒｔ ⚠️ ] This command is restricted/deactivated by decision of the owner of the bot*'
     }[type]
     let aa = { quoted: m, userJid: conn.user.jid }
