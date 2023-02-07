@@ -27,7 +27,7 @@ let txt3 = `🔗 *Url:* ${shortUrl3}`.trim()
 for (const { url } of resultssss) await conn.sendFile(m.chat, url, 'error.mp4', txt4, m)
 break       
 }} catch {
-await await m.reply(`*[❗𝐈𝐍𝐅𝐎❗] اذا لم يشتغل معك هذا الامر جرب احد هذه الاوامر متبوعة برابط الفيديو (${usedPrefix}ig, ${usedPrefix}insta, ${usedPrefix}ig3)*`)
+await await m.reply(`*[❗𝐈𝐍𝐅𝐎❗] اذا لم يشتغل معك هذا الامر هذا يعني ان الحساب خاص او يمكنك تجريب احد هذه الاوامر متبوعة برابط الفيديو (${usedPrefix}ig, ${usedPrefix}insta, ${usedPrefix}ig3)*`)
 }}
 handler.command = /^(instagramdl|instagram|igdl|ig|instagramdl2|instagram2|igdl2|insta|instagramdl3|instagram3|igdl3|ig3)$/i
 export default handler
