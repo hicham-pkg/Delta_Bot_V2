@@ -1,5 +1,5 @@
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-    if (!args[0]) throw `*[❗𝐈𝐍𝐅𝐎❗] enter the name of an instagram user*\n\n*Exemple:*\n*${usedPrefix + command} joe_hattab*`
+    if (!args[0]) throw `[❗𝐈𝐍𝐅𝐎❗] enter the name of an instagram user*\n\n*Exemple:*\n*${usedPrefix + command} joe_hattab`
     await m.reply(global.wait)    
     const res = await fetch(`https://api.lolhuman.xyz/api/igstory/${args[0]}?apikey=${lolkeysapi}`)
     var anu = await res.json()
