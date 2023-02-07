@@ -25,9 +25,9 @@
   "bugs": {
     "url": "https://github.com/hicham-pkg/bot-wts-delta-v1/issues"
   },
-  "license": "GPL-3.0-or-later",
+"license": "GPL-3.0-or-later",
     "dependencies": {
-        "@adiwajshing/baileys": "github:hicham-pkg/Baileys",
+        "@adiwajshing/baileys": "github:BrunoSobrino/baileys",
         "@bochilteam/scraper": "^3.0.0",
         "@vitalets/google-translate-api": "^8.0.0",
         "@shineiichijo/marika": "^2.0.6",
