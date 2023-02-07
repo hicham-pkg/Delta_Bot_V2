@@ -1383,7 +1383,7 @@ global.dfail = (type, m, conn) => {
         restrict: '*[ ⚠️ Ａｌｅｒｔ ⚠️ ] This command is restricted/deactivated by decision of the owner of the bot*'
     }[type]
     let aa = { quoted: m, userJid: conn.user.jid }
-    let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: '[ ⚠ ] Notice - Ａｌｅｒｔ', body: 'ᴛʜᴇ ᴅᴇʟᴛᴀ - ʙᴏᴛ', thumbnail: imagen1, sourceUrl: 'https://github.com/hicham-pkg/bot-wts-delta-v1' }}}}, aa)
+    let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: '[ ⚠ ] Notice - Ａｌｅｒｔ', body: 'ᴛʜᴇ ᴅᴇʟᴛᴀ - ʙᴏᴛ', thumbnail: imagen1, sourceUrl: 'https://i.ibb.co/PG25cp2/Screenshot-20220304-214048.jpg' }}}}, aa)
     if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
     //if (msg) return m.reply(msg)
 }
