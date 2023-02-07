@@ -167,7 +167,7 @@ let results = Object.keys(emot).map(v => [v, new RegExp(v, 'gi')]).filter(v => v
 if (!results.length) return ''
 else return emot[results[0][0]]
 }}
-global.rpgg = { //Solo emojis 
+global.rpgg = { //emoji only
 emoticon(string) {
 string = string.toLowerCase()
     let emott = {
@@ -260,7 +260,7 @@ let results = Object.keys(emott).map(v => [v, new RegExp(v, 'gi')]).filter(v => 
 if (!results.length) return ''
 else return emott[results[0][0]]
 }}
-global.rpgshop = { //Tienda
+global.rpgshop = { //Store
 emoticon(string) {
 string = string.toLowerCase()
     let emottt = {
@@ -337,7 +337,7 @@ let results = Object.keys(emottt).map(v => [v, new RegExp(v, 'gi')]).filter(v =>
 if (!results.length) return ''
 else return emottt[results[0][0]]
 }}
-global.rpgshopp = { //Tienda
+global.rpgshopp = { //Store
   emoticon(string) {
     string = string.toLowerCase()
     let emotttt = {
@@ -421,7 +421,7 @@ global.flaaa = [
 'https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=amped-logo&doScale=true&scaleWidth=800&scaleHeight=500&text=',
 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&text=',
 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text=']
-//********Tiempo***************
+//********Time***************
 global.d = new Date(new Date + 3600000)
 global.locale = 'en'
 global.days = d.toLocaleDateString(locale, { weekday: 'long' })
