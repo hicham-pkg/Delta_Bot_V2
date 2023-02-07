@@ -13,5 +13,5 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     }}
     handler.help = ['igstory <username>']
     handler.tags = ['downloader']
-    handler.command = ['igstory', 'igs' ]
+    handler.command = ['instastory', 'igs' ]
     export default handler
