@@ -20,7 +20,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     {title: "🤬 | Antitoxic", description: "activate or deactivate the anti bad word", rowId: `${usedPrefix + command} antitoxic`},
     {title: "🕸️ | Antilock", description: "Activates or deactivates the anti-lock", rowId: `${usedPrefix + command} antilock`}, 
     {title: "🤖 | ModeJadibot", description: "enable or disable command for sub bots (#𝚂𝙴𝚁𝙱𝙾𝚃 / #𝙹𝙰𝙳𝙸𝙱𝙾𝚃)", rowId: `${usedPrefix + command} modejadibot`}, 
-    {title: "👑 | Modeadmin", description: "the bot will only respond to group admins", rowId: `${usedPrefix + command} modoadmin`}, 
+    {title: "👑 | Modeadmin", description: "the bot will only respond to group admins", rowId: `${usedPrefix + command} modeadmin`}, 
     {title: "😃 | simsimi", description: "enable or disable the bot to speak in chat using simsimi ai", rowId: `${usedPrefix + command} simsimi`},
     ]}, ]
     //let name = await conn.getName(m.sender)
@@ -61,8 +61,8 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     ┣ ඬ⃟ℹ️ _${usedPrefix}disable *antilock*_
     ┣ ඬ⃟ℹ️ _${usedPrefix}enable *modejadibot*_
     ┣ ඬ⃟ℹ️ _${usedPrefix}disable *modejadibot*_
-    ┣ ඬ⃟ℹ️ _${usedPrefix}enable *modoadmin*_
-    ┣ ඬ⃟ℹ️ _${usedPrefix}disable *modoadmin*_
+    ┣ ඬ⃟ℹ️ _${usedPrefix}enable *modeadmin*_
+    ┣ ඬ⃟ℹ️ _${usedPrefix}disable *modeadmin*_
     ┣ ඬ⃟ℹ️ _${usedPrefix}enable *simsimi*_
     ┣ ඬ⃟ℹ️ _${usedPrefix}disable *simsimi*_
     ┗━━━━━━━━━━━━━┛`,
@@ -157,13 +157,13 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
     }}
     chat.antiviewonce = isEnable 
     break
-    case 'modoadmin':
+    case 'modeadmin':
     if (m.isGroup) {
     if (!(isAdmin || isOwner)) {
     global.dfail('admin', m, conn)
     throw false
     }}
-    chat.modoadmin = isEnable          
+    chat.modeadmin = isEnable          
     break    
     case 'autosticker':
     if (m.isGroup) {
