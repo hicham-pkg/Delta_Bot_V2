@@ -1,4 +1,4 @@
-/* 𝐂𝐑𝐄𝐀𝐃𝐎 𝐏𝐎𝐑 https://github.com/BrunoSobrino */
+/* 𝐂𝐑𝐄𝐀𝐃𝐎 𝐏𝐎𝐑 https://github.com/hicham-pkg */
 
 let handler = async (m, { conn, usedPrefix, command }) => {
 if (!m.quoted) throw `تحويل فيديو الى صورة متحركة GIF 
