@@ -1,30 +1,41 @@
-import fs from 'fs'
-import fetch from 'node-fetch'
-import { xpRange } from '../lib/levelling.js'
-const { levelling } = '../lib/levelling.js'
-import PhoneNumber from 'awesome-phonenumber'
-import { promises } from 'fs'
-import { join } from 'path'
-let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text }) => {
-try {
-let vn = './media/menu.mp3'
-let pp = imagen4
-let img = await(await fetch('https://i.ibb.co/k1mzvps/DeltaBot.jpg')).buffer()
-let d = new Date(new Date + 3600000)
-let locale = 'en'
-let week = d.toLocaleDateString(locale, { weekday: 'long' })
-let date = d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' })
-let _uptime = process.uptime() * 1000
-let uptime = clockString(_uptime)
-let user = global.db.data.users[m.sender]
-let { money, joincount } = global.db.data.users[m.sender]
-let { exp, limit, level, role } = global.db.data.users[m.sender]
-let { min, xp, max } = xpRange(level, global.multiplier)
-let rtotalreg = Object.values(global.db.data.users).filter(user => user.registered == true).length 
-let more = String.fromCharCode(8206)
-let readMore = more.repeat(850)   
-let taguser = '@' + m.sender.split("@s.whatsapp.net")[0]
-let str = `
+import fs from "fs"
+import fetch from "node-fetch"
+import { xpRange } from "../lib/levelling.js"
+const { levelling } = "../lib/levelling.js"
+import PhoneNumber from "awesome-phonenumber"
+import { promises } from "fs"
+import { join } from "path"
+let handler = async (
+  m,
+  { conn, usedPrefix, usedPrefix: _p, __dirname, text }
+) => {
+  try {
+    let vn = "./media/menu.mp3"
+    let pp = image4
+    let img = await (
+      await fetch("https://i.ibb.co/k1mzvps/DeltaBot.jpg")
+    ).buffer()
+    let d = new Date(new Date() + 3600000)
+    let locale = "en"
+    let week = d.toLocaleDateString(locale, { weekday: "long" })
+    let date = d.toLocaleDateString(locale, {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    })
+    let _uptime = process.uptime() * 1000
+    let uptime = clockString(_uptime)
+    let user = global.db.data.users[m.sender]
+    let { money, joincount } = global.db.data.users[m.sender]
+    let { exp, limit, level, role } = global.db.data.users[m.sender]
+    let { min, xp, max } = xpRange(level, global.multiplier)
+    let rtotalreg = Object.values(global.db.data.users).filter(
+      (user) => user.registered == true
+    ).length
+    let more = String.fromCharCode(8206)
+    let readMore = more.repeat(850)
+    let taguser = "@" + m.sender.split("@s.whatsapp.net")[0]
+    let str = `
 ╭═══〘 ✯✯✯✯✯✯✯✯✯ 〙══╮
 ║    ◉— *𝐓𝐡𝐞 𝐃𝐞𝐥𝐭𝐚 - 𝐁𝐨𝐭* —◉
 ║≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡║
@@ -47,7 +58,7 @@ let str = `
 ┣ *💎 diamonds:* ${limit}
 ┣ *👾 DeltaCoins:* ${money}
 ┣ *🪙 Tokens:* ${joincount}
-┣ *🎟️ Premium:* ${user.premium = 'true' ? '✅' : '❌'}
+┣ *🎟️ Premium:* ${(user.premium = "true" ? "✅" : "❌")}
 ┗━━━━━━━━━━━━━━━━┛
 ${readMore}
 
@@ -80,6 +91,8 @@ ${readMore}
 *│*  ⸙ .*yts*  للبحث من اليوتوب   
 
 *│*  ⸙ .*google*  للبحث في Google
+
+*│*  ⸙ .*playstore* للبحث في playstore
 *╰────────────────────*
 *╭────────────────────*
   Ｃｏｎｖｅｒｔ
@@ -128,6 +141,31 @@ ${readMore}
 
 *│*  ⸙ .*update*
 
+*│*  ⸙ .*cleartmp*
+
+*│*  ⸙ .*addLimit*
+
+*│*  ⸙ .*addprem*
+
+*│*  ⸙ .*delprem*
+
+*│*  ⸙ .*listprem*
+
+*│*  ⸙ .*addxp*
+
+*│*  ⸙ .*banchat-unbanchat*
+
+*│*  ⸙ .*banuser-unbanuser*
+
+*│*  ⸙ .*banlist*
+
+*│*  ⸙ .*block-unblock*
+
+*│*  ⸙ .*blocklist*
+
+*│*  ⸙ .*delmsg*
+
+*│*  ⸙ .*broadcastchats*
 *╰────────────────────*
 *╰────────────────────*
 
@@ -136,7 +174,11 @@ ${readMore}
 DeltaBot by Alfa(Stellar)
 `.trim()
     let buttons = [
-      { buttonId: "#donar", buttonText: { displayText: "📮 Hicham 📮" }, type: 1 },
+      {
+        buttonId: "#donar",
+        buttonText: { displayText: "📮 Hicham 📮" },
+        type: 1,
+      },
       { buttonId: "#owner", buttonText: { displayText: "🌹 ♥ 🌹" }, type: 1 },
     ]
     //{ buttonId: '#infobot', buttonText: { displayText: '🐾 𝙸𝙽𝙵𝙾𝙱𝙾𝚃 🐾' }, type: 1 }]
