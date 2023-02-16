@@ -1,41 +1,52 @@
-import fetch from "node-fetch"
-import translate from "@vitalets/google-translate-api"
+import fetch from "node-fetch";
+import translate from "@vitalets/google-translate-api";
+
 let handler = async (m, { conn, text, args }) => {
-  if (!args[0]) throw `*[❗] أدخل اسم ملف APK الذي تريد البحث عنه*`
+  if (!args[0]) {
+    throw `*[❗] Enter the name of the APK file you want to search for*`;
+  }
+
   try {
-    let enc = encodeURIComponent(text)
+    let enc = encodeURIComponent(text);
     let json = await fetch(
       `https://latam-api.vercel.app/api/playstore?apikey=brunosobrino&q=${enc}`
-    )
-    let gPlay = await json.json()
+    );
+    let gPlay = await json.json();
 
-    let mystic = await translate(`${gPlay.descripcion}`, {
+    let delta = await translate(`${gPlay.descripcion}`, {
       to: "en",
       autoCorrect: true,
-    })
-    if (!gPlay.titulo) return m.reply(`[ ! ] بدون نتائج`)
+    });
+
+    if (!gPlay.titulo) {
+      return m.reply(`[ ! ] No results`);
+    }
+
     conn.sendMessage(
       m.chat,
       {
         image: { url: gPlay.image },
-        caption: `🔍 نتيجة: ${gPlay.titulo}
+        caption: `🔍 Result: ${gPlay.titulo}
 🧬 ID: ${gPlay.id}
 ⛓️ Link: ${gPlay.link}
 🖼️ Image: ${gPlay.image}
-✍️ developer: ${gPlay.desarrollador}
-📜 Description: ${mystic.text}
+✍️ Developer: ${gPlay.desarrollador}
+📜 Description: ${delta.text}
 💲 Currency: ${gPlay.moneda}
 🎭 Free?: ${gPlay.gratis}
 💸 Price: ${gPlay.precio}
-📈 Punctuation: ${gPlay.puntuacion}`,
+📈 Rating: ${gPlay.puntuacion}`,
       },
       { quoted: m }
-    )
-  } catch {
-    await m.reply("*[❗𝐈𝐍𝐅𝐎❗] Error, please try again*")
+    );
+  } catch (error) {
+    console.log(error);
+    await m.reply("*[❗] Error, please try again*");
   }
-}
-handler.help = ["playstore <aplicacion>"]
-handler.tags = ["internet"]
-handler.command = /^(playstore)$/i
-export default handler
+};
+
+handler.help = ["playstore <application>"];
+handler.tags = ["internet"];
+handler.command = /^(playstore)$/i;
+
+export default handler;
