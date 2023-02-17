@@ -95,36 +95,84 @@ if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 't
 
 if (opts['server']) (await import('./server.js')).default(global.conn, PORT)
 
+   
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
 function clearTmp() {
 const tmp = [tmpdir(), join(__dirname, './tmp')]
 const filename = []
 tmp.forEach(dirname => readdirSync(dirname).forEach(file => filename.push(join(dirname, file))))
-   
-
-   
-/*readdirSync("./jadibts").forEach(file => {
-const btprs = function (folder) {
-console.log(folder)
-let status = false
-Object.keys(global.conns).forEach((key) => {
-if (global.conns[key].uniqid == folder) status = true });
-return status }
-let lrp = btprs(file)
-console.log(lrp)
-if (!lrp) {rmSync("./jadibts/" + file, { recursive: true, force: true })}
-else if (lrp){
-try {
-readdirSync("./jadibts/" + file).forEach(file2 => {
-if (file2 !== "creds.json") { unlinkSync("./jadibts/" + file + "/" + file2) }})
-} catch {}}})*/
-       
-readdirSync("./DeltaSession").forEach(file => {
-if (file !== 'creds.json') {
-unlinkSync("./DeltaSession/" + file, { recursive: true, force: true })}})    
 return filename.map(file => {
-const stats = statSync(file)
-if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 3)) return unlinkSync(file) // 3 minutes
-return false })}
+    const stats = statSync(file)
+    if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 3)) return unlinkSync(file) // 3 minutes
+    return false })}
+
+function purgeSession() {
+    let prekey = []
+    let directorio = readdirSync("./DeltaSession")
+    let filesFolderPreKeys = directorio.filter(file => {
+        return file.startsWith('pre-key-')
+    })
+    prekey = [...prekey, ...filesFolderPreKeys]
+    filesFolderPreKeys.forEach(files => {
+    unlinkSync(`./DeltaSession/${files}`)
+})
+
+}  
+function purgeSessionSB() {
+let listaDirectorios = readdirSync('./jadibts/');
+console.log(listaDirectorios)
+      let SBprekey = []
+listaDirectorios.forEach(filesInDir => {
+    let directorio = readdirSync(`./jadibts/${filesInDir}`)
+    console.log(directorio)
+    let DSBPreKeys = directorio.filter(fileInDir => {
+    return fileInDir.startsWith('pre-key-')
+    })
+    SBprekey = [...SBprekey, ...DSBPreKeys]
+    DSBPreKeys.forEach(fileInDir => {
+        unlinkSync(`./jadibts/${filesInDir}/${fileInDir}`) 
+    })
+    })
+    
+}
+
+function purgeOldFiles() {
+const directories = ['./DeltaSession/', './jadibts/']
+const oneHourAgo = Date.now() - (60 * 60 * 1000) 
+directories.forEach(dir => {
+    readdirSync(dir, (err, files) => {
+        if (err) throw err
+        files.forEach(file => {
+            const filePath = path.join(dir, file)
+            stat(filePath, (err, stats) => {
+                if (err) throw err;
+                if (stats.isFile() && stats.mtimeMs < oneHourAgo && file !== 'creds.json') { 
+                    unlinkSync(filePath, err => {  
+                        if (err) throw err
+                        console.log(`File ${file} deleted successfully`)
+                    })
+                } else {  
+                    console.log(`File ${file} not deleted`) 
+                } 
+            }) 
+        }) 
+    }) 
+})
+}
 
 async function connectionUpdate(update) {
 const { connection, lastDisconnect, isNewLogin } = update
@@ -137,10 +185,10 @@ global.timestamp.connect = new Date
 }
 if (global.db.data == null) loadDatabase()
 if (update.qr != 0 && update.qr != undefined) {
-console.log(chalk.yellow('🚩ㅤQR Valid for examination in only sixty seconds .'))
+console.log(chalk.yellow('🚩ㅤScan this QR code, the QR code expires in 60 seconds.'))
 }
 if (connection == 'open') {
-console.log(chalk.yellow('▣──────────────────────────────···\n│\n│❧ connected successfully ✅\n│\n▣──────────────────────────────···'))}
+console.log(chalk.yellow('▣──────────────────────────────···\n│\n│❧ Successfully connected to whatsapp ✅\n│\n▣──────────────────────────────···'))}
 if (connection == 'close') {
 console.log(chalk.yellow(`🚩ㅤConnection closed, please delete the folder ${global.authFile} and rescan the QR code`))}
 }
@@ -173,7 +221,7 @@ conn.ev.off('connection.update', conn.connectionUpdate)
 conn.ev.off('creds.update', conn.credsUpdate)
 }
   
-conn.welcome = '*╔══════════════*\n*╟❧ @subject*\n*╠══════════════*\n*╟❧ @user*\n*╟❧ مرحبا بك في مجموعتنا /𝙰* \n*║*\n*╟❧ Delta يرحب بك يا عزيزي:*\n\n@desc\n\n*║*\n*╟❧ DeltaBot!!*\n*╚══════════════*'
+conn.welcome = '*╔══════════════*\n*╟❧ @subject*\n*╠══════════════*\n*╟❧ @user*\n*╟❧ مرحبا بك في مجموعتنا /𝙰* \n*║*\n*╟❧ Deltabot says Hi:*\n\n@desc\n\n*║*\n*╟❧ DeltaBot!!*\n*╚══════════════*'
 conn.bye = '*╔══════════════*\n*╟❧ @user*\n*╟❧ الى اللقاء  👋🏻* \n*╚══════════════*'
 conn.spromote = '*@user Join the admin group!!*'
 conn.sdemote = '*@user Leave the admin group !!*'
@@ -189,6 +237,15 @@ conn.onDelete = handler.deleteUpdate.bind(global.conn)
 conn.onCall = handler.callUpdate.bind(global.conn)
 conn.connectionUpdate = connectionUpdate.bind(global.conn)
 conn.credsUpdate = saveCreds.bind(global.conn, true)
+
+const currentDateTime = new Date();
+const messageDateTime = new Date(conn.ev);
+if (currentDateTime >= messageDateTime) {
+    let chats = Object.entries(conn.chats).filter(([jid, chat]) => !jid.endsWith('@g.us') && chat.isChats).map(v => v[0])
+  console.log(chats, conn.ev); 
+} else {
+    let chats = Object.entries(conn.chats).filter(([jid, chat]) => !jid.endsWith('@g.us') && chat.isChats).map(v => v[0])
+ console.log(chats, 'Omitiendo mensajes en espera.'); }
 
 conn.ev.on('messages.upsert', conn.handler)
 conn.ev.on('group-participants.update', conn.participantsUpdate)
@@ -270,11 +327,23 @@ var a = await clearTmp()
 console.log(chalk.cyanBright(`\n▣───────────[ 𝙰𝚄𝚃𝙾𝙲𝙻𝙴𝙰𝚁 ]──────────────···\n│\n▣─❧ Deleted files ✅\n│\n▣───────────────────────────────────────···\n`))
 }, 180000)
 setInterval(async () => {
+    await purgeSession()
+console.log(chalk.cyanBright(`\n▣────────[ SELF PURGESESSIONS ]───────────···\n│\n▣─❧ FILES DELETED ✅\n│\n▣────────────────────────────────────···\n`))
+}, 1000 * 60 * 60)
+setInterval(async () => {
+     await purgeSessionSB()
+console.log(chalk.cyanBright(`\n▣────────[ AUTO_PURGE_SESSIONS_SUB-BOTS ]───────────···\n│\n▣─❧ FILES DELETED ✅\n│\n▣────────────────────────────────────···\n`))
+}, 1000 * 60 * 60)
+setInterval(async () => {
+    await purgeOldFiles()
+console.log(chalk.cyanBright(`\n▣────────[ AUTO_PURGE_OLDFILES ]───────────···\n│\n▣─❧ FILES DELETED ✅\n│\n▣────────────────────────────────────···\n`))
+}, 1000 * 60 * 60)
+setInterval(async () => {
 if (stopped == 'close') return        
 const status = global.db.data.settings[conn.user.jid] || {}
 let _uptime = process.uptime() * 1000    
 let uptime = clockString(_uptime)
-let bio = `🤖DELTA𝖡𝖮𝖳 `
+let bio = `🤖 Active time: ${uptime} ┃ 👑 By stellar alfa`
 await conn.updateProfileStatus(bio).catch(_ => _)
 }, 60000)
 function clockString(ms) {
