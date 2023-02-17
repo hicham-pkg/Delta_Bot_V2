@@ -133,7 +133,11 @@ ${readMore}
 
 *│*  ⸙ .*whatsong*  معرفة اسم اي موسيقى
 
-*│*  ⸙ .*ai* Chatgpt ai
+*│*  ⸙ .*ai*  Chatgpt ai
+
+*│*  ⸙ .*climate* معرفة الطقس
+
+*│*  ⸙ .*shorter* link shortener
 *╰────────────────────*
 *╭────────────────────*
   Ｏｗｎｅｒ ｃｏｍｍａｎｄｓ
