@@ -18,5 +18,5 @@ m.reply(wea)
 return "*[❗𝐈𝐍𝐅𝐎❗] No results found, check that you have spelled your country or city correctly*"}}
 handler.help = ['weather *<city/country>*']
 handler.tags = ['tools']
-handler.command = /^(climate|temperature)$/i
+handler.command = /^(climate|weather|temperature)$/i
 export default handler
