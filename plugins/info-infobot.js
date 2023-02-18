@@ -15,7 +15,7 @@ let handler = async (m, { conn, usedPrefix }) => {
   const groupsIn = chats.filter(([id]) => id.endsWith("@g.us"))
   const groups = chats.filter(([id]) => id.endsWith("@g.us"))
   const used = process.memoryUsage()
-  const { restrict, anticall, antiprivado, modejadibot } =
+  const { restrict, antiCall, antiprivado, modejadibot } =
     global.db.data.settings[conn.user.jid] || {}
   const { autoread, gconly, pconly, self } = global.opts || {}
   let old = performance.now()
@@ -37,7 +37,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 ╠➥ [🌎] Mode: ${self ? "*private*" : "*public*"}
 ╠➥ [💬] Antiprivate: ${antiprivado ? "*activated*" : "*desactivated*"}
 ╠➥ [🤖] Modejadibot ${modejadibot ? "*activated*" : "*desactivated*"}
-╠➥ [📵] Anti-call: ${anticall ? "*activated*" : "*desactivated*"}
+╠➥ [📵] Anti-call: ${antiCall ? "*activated*" : "*desactivated*"}
 ╠➥ [👨‍🦯] Speed: 
 ╠  *${speed} ms* 
 ╠

@@ -921,7 +921,7 @@ export async function handler(chatUpdate) {
         if (!("self" in settings)) settings.self = false
         if (!("autoread" in settings)) settings.autoread = false
         if (!("restrict" in settings)) settings.restrict = false
-        if (!("anticall" in settings)) settings.anticall = false
+        if (!("antiCall" in settings)) settings.antiCall = false
         if (!("antiPrivate" in settings)) settings.antiPrivate = false
         if (!("modejadibot" in settings)) settings.modejadibot = true
       } else
@@ -929,7 +929,7 @@ export async function handler(chatUpdate) {
           self: false,
           autoread: false,
           restrict: false,
-          anticall: false,
+          antiCall: false,
           antiPrivate: false,
           modejadibot: true,
         }
@@ -1450,8 +1450,8 @@ export async function groupsUpdate(groupsUpdate) {
 }
 
 export async function callUpdate(callUpdate) {
-  let isanticall = global.db.data.settings[this.user.jid].anticall
-  if (!isanticall) return
+  let isantiCall = global.db.data.settings[this.user.jid].antiCall
+  if (!isantiCall) return
   for (let nk of callUpdate) {
     if (nk.isGroup == false) {
       if (nk.status == "offer") {

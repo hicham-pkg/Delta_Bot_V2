@@ -75,7 +75,7 @@ let handler = async (
         {
           title: "📵 | Anti-Call",
           description: "activate or deactivate the anti call",
-          rowId: `${usedPrefix + command} anticall`,
+          rowId: `${usedPrefix + command} antiCall`,
         },
         {
           title: "💬 | Anti-private",
@@ -140,8 +140,8 @@ let handler = async (
     ┣ ඬ⃟ℹ️ _${usedPrefix}disable *antiviewonce*_
     ┣ ඬ⃟ℹ️ _${usedPrefix}enable *autosticker*_
     ┣ ඬ⃟ℹ️ _${usedPrefix}disable *autosticker*_
-    ┣ ඬ⃟ℹ️ _${usedPrefix}enable *anticall*_
-    ┣ ඬ⃟ℹ️ _${usedPrefix}disable *anticall*_
+    ┣ ඬ⃟ℹ️ _${usedPrefix}enable *antiCall*_
+    ┣ ඬ⃟ℹ️ _${usedPrefix}disable *antiCall*_
     ┣ ඬ⃟ℹ️ _${usedPrefix}enable *antiprivate*_
     ┣ ඬ⃟ℹ️ _${usedPrefix}disable *antiprivate*_
     ┣ ඬ⃟ℹ️ _${usedPrefix}enable *antitoxic*_
@@ -332,13 +332,13 @@ let handler = async (
       }
       global.opts["swonly"] = isEnable
       break
-    case "anticall":
+    case "antiCall":
       isAll = true
       if (!isROwner) {
         global.dfail("rowner", m, conn)
         throw false
       }
-      bot.anticall = isEnable
+      bot.antiCall = isEnable
       break
     case "antiprivate":
       isAll = true
