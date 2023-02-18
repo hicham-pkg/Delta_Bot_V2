@@ -4,11 +4,11 @@ let chats = Object.entries(conn.chats).filter(([jid, chat]) => !jid.endsWith('@g
 let cc = text ? m : m.quoted ? await m.getQuotedObj() : false || m
 let teks = text ? text : cc.text
 for (let id of chats) { 
-conn.sendButton(id, `*╔══❰ announcement ❱══╗*\n*║*\n*╠❧* ${text}\n*║*\n*╚══════════════╝*`, 'this is an official statement\n' + wm, fs.readFileSync('./src/avatar_contact.png'), [['🤖 Owner 🤖', '.owner'],['💎 to give 💎', '.donasi']], false, { 
+conn.sendButton(id, `*╔══❰ announcement ❱══╗*\n*║*\n*╠❧* ${text}\n*║*\n*╚══════════════╝*`, 'this is an official statement\n' + wm, fs.readFileSync('./src/avatar_contact.png'), [['🤖 Owner 🤖', '.owner'],['💎 to give 💎', '.donate']], false, { 
 contextInfo: { externalAdReply: {
 title: 'official announcement to private chats',
 body: 'ʙʏ The Delta - Bot', 
-sourceUrl: `https://github.com/hicham-pkg/Delta_Bot_V1`, 
+sourceUrl: `https://i.ibb.co/k1mzvps/DeltaBot.jpg`, 
 thumbnail: fs.readFileSync('./Menu2.jpg') }}})}
 m.reply(`*[❗𝐈𝐍𝐅𝐎❗] message sent to ${chats.length} private chats*\n\n*NOTE: It is possible that this command has errors and it is not sent to all the chats, sorry for the moment*`)
 }
