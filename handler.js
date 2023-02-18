@@ -883,15 +883,14 @@ export async function handler(chatUpdate) {
         if (!("sPromote" in chat)) chat.sPromote = ""
         if (!("sDemote" in chat)) chat.sDemote = ""
         if (!("delete" in chat)) chat.delete = true
-        if (!("modohorny" in chat)) chat.modohorny = false
         if (!("autosticker" in chat)) chat.autosticker = false
         if (!("audios" in chat)) chat.audios = false
-        if (!("antiLink" in chat)) chat.antiLink = false
-        if (!("antiLink2" in chat)) chat.antiLink2 = false
+        if (!("antilink" in chat)) chat.antilink = false
+        if (!("antilink2" in chat)) chat.antilink2 = false
         if (!("antiviewonce" in chat)) chat.antiviewonce = false
-        if (!("antiToxic" in chat)) chat.antiToxic = false
-        if (!("antiTraba" in chat)) chat.antiTraba = false
-        if (!("modoadmin" in chat)) chat.modoadmin = false
+        if (!("antitoxic" in chat)) chat.antitoxic = false
+        if (!("antilock" in chat)) chat.antilock = false
+        if (!("Modeadmin" in chat)) chat.Modeadmin = false
         if (!("simi" in chat)) chat.simi = false
         if (!isNumber(chat.expired)) chat.expired = 0
       } else
@@ -904,15 +903,14 @@ export async function handler(chatUpdate) {
           sPromote: "",
           sDemote: "",
           delete: true,
-          modohorny: true,
           autosticker: false,
           audios: true,
-          antiLink: false,
-          antiLink2: false,
+          antilink: false,
+          antilink2: false,
           antiviewonce: false,
-          antiToxic: false,
-          antiTraba: false,
-          modoadmin: false,
+          antitoxic: false,
+          antilock: false,
+          Modeadmin: false,
           simi: false,
           expired: 0,
         }
@@ -923,7 +921,7 @@ export async function handler(chatUpdate) {
         if (!("self" in settings)) settings.self = false
         if (!("autoread" in settings)) settings.autoread = false
         if (!("restrict" in settings)) settings.restrict = false
-        if (!("antiCall" in settings)) settings.antiCall = false
+        if (!("anticall" in settings)) settings.anticall = false
         if (!("antiPrivate" in settings)) settings.antiPrivate = false
         if (!("modejadibot" in settings)) settings.modejadibot = true
       } else
@@ -931,7 +929,7 @@ export async function handler(chatUpdate) {
           self: false,
           autoread: false,
           restrict: false,
-          antiCall: false,
+          anticall: false,
           antiPrivate: false,
           modejadibot: true,
         }
@@ -1121,7 +1119,7 @@ export async function handler(chatUpdate) {
           if (name != "owner-unbanuser.js" && user?.banned) return
         }
         let hl = _prefix
-        let adminMode = global.db.data.chats[m.chat].modoadmin
+        let adminMode = global.db.data.chats[m.chat].Modeadmin
         let delta = `${
           plugin.botAdmin ||
           plugin.admin ||
@@ -1452,8 +1450,8 @@ export async function groupsUpdate(groupsUpdate) {
 }
 
 export async function callUpdate(callUpdate) {
-  let isAnticall = global.db.data.settings[this.user.jid].antiCall
-  if (!isAnticall) return
+  let isanticall = global.db.data.settings[this.user.jid].anticall
+  if (!isanticall) return
   for (let nk of callUpdate) {
     if (nk.isGroup == false) {
       if (nk.status == "offer") {
