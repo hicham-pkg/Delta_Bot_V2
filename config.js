@@ -22,6 +22,7 @@ global.owner = [
   ["212707400335"],
 ]
 
+
 global.suittag = ["212707400335"]
 global.prems = ["212707400335"]
 
@@ -31,8 +32,8 @@ global.wm = "DELTABOT 𝖡𝖸 ALFA"
 global.igfg = "DELTABOT 𝖡𝖸 ALFA"
 global.wait = "*[❗] سوف يتم تلبية طلبكم بعد قليلا المرجو الانتظار قليلا ...*"
 
-global.keysZens = ["c2459db922", "37CC845916", "6fb0eff124"]
-// 'fiktod' 'BF39D349845E' '675e34de8a' '0b917b905e6f'
+global.keysZens = ['LuOlangNgentot', 'c2459db922', '37CC845916', '6fb0eff124', 'hdiiofficial', 'fiktod', 'BF39D349845E', '675e34de8a', '0b917b905e6f']
+
 global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())]
 global.keysxteammm = [
   "29d4b59a4aa687ca",

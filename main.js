@@ -122,8 +122,8 @@ return filename.map(file => {
 
 function purgeSession() {
     let prekey = []
-    let directorio = readdirSync("./DeltaSession")
-    let filesFolderPreKeys = directorio.filter(file => {
+    let directory = readdirSync("./DeltaSession")
+    let filesFolderPreKeys = directory.filter(file => {
         return file.startsWith('pre-key-')
     })
     prekey = [...prekey, ...filesFolderPreKeys]
@@ -133,13 +133,13 @@ function purgeSession() {
 
 }  
 function purgeSessionSB() {
-let listaDirectorios = readdirSync('./jadibts/');
-console.log(listaDirectorios)
+let directoryList = readdirSync('./jadibts/');
+console.log(directoryList)
       let SBprekey = []
-listaDirectorios.forEach(filesInDir => {
-    let directorio = readdirSync(`./jadibts/${filesInDir}`)
-    console.log(directorio)
-    let DSBPreKeys = directorio.filter(fileInDir => {
+directoryList.forEach(filesInDir => {
+    let directory = readdirSync(`./jadibts/${filesInDir}`)
+    console.log(directory)
+    let DSBPreKeys = directory.filter(fileInDir => {
     return fileInDir.startsWith('pre-key-')
     })
     SBprekey = [...SBprekey, ...DSBPreKeys]
