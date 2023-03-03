@@ -3,14 +3,14 @@ import { sizeFormatter } from 'human-readable'
 let formatSize = sizeFormatter({
 std: 'JEDEC', decimalPlaces: 2, keepTrailingZeroes: false, render: (literal, symbol) => `${literal} ${symbol}B` })
 let handler = async (m, { conn, args }) => {
-if (!args[0]) throw '*[hada ila bghti tilicharji chi haja mn google drive :*\n*◉ https://drive.google.com/file/d/1dmHlx1WTbH5yZoNa_ln325q5dxLn1QHU/view*' 
+if (!args[0]) throw '*[هذا إذا كنت تريد تنزيل شيء ما من Google Drive :*\n*◉ https://drive.google.com/file/d/1dmHlx1WTbH5yZoNa_ln325q5dxLn1QHU/view*' 
 try {
 GDriveDl(args[0]).then(async (res) => {
-conn.reply(m.chat, 'att wahd chwia khas ghi lhaja li baghi tilicharjiha matfotch 100mb...\n\n𝐸𝑙 𝑡𝑖𝑒𝑚𝑝𝑜 𝑑𝑒 𝑒𝑠𝑝𝑒𝑟𝑎 𝑝𝑢𝑒𝑑𝑒 𝑣𝑎𝑟𝑖𝑎𝑟 𝑑𝑒𝑝𝑒𝑛𝑑𝑖𝑒𝑛𝑑𝑜 𝑑𝑒𝑙 𝑝𝑒𝑠𝑜 𝑑𝑒𝑙 𝑎𝑟𝑐ℎ𝑖𝑣𝑜, 𝑠𝑖 𝑒𝑙 𝑝𝑒𝑠𝑜 𝑠𝑢𝑝𝑒𝑟𝑎 𝑙𝑜𝑠 100 𝑀𝐵 𝑝𝑢𝑒𝑑𝑒 𝑞𝑢𝑒 𝑠𝑢 𝑎𝑟𝑐ℎ𝑖𝑣𝑜 𝑛𝑜 𝑠𝑒𝑎 𝑒𝑛𝑣𝑖𝑎𝑑𝑜', m)
+conn.reply(m.chat, 'انتظر من فضلك...\n\nقد يختلف وقت الانتظار اعتمادًا على حجم الملف ، إذا تجاوز الحجم 100 ميغا بايت ، فقد لا يتم إرسال ملفك', m)
 if (!res) throw res
 conn.sendFile(m.chat, res.downloadUrl, res.fileName, '', m, null, { mimetype: res.mimetype, asDocument: true })})
 }catch(e){
-m.reply('*[hada ila bghti tilicharji chi haja mn google drive exemple gdrive:*\n*◉ https://drive.google.com/file/d/1dmHlx1WTbH5yZoNa_ln325q5dxLn1QHU/view*')
+m.reply('*[هذا إذا كنت تريد تنزيل شيء ما من Google Drive:*\n*◉ https://drive.google.com/file/d/1dmHlx1WTbH5yZoNa_ln325q5dxLn1QHU/view*')
 console.log(e)}}
 handler.command = /^(gdrive)$/i
 export default handler

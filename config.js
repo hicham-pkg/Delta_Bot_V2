@@ -22,7 +22,6 @@ global.owner = [
   ["212707400335"],
 ]
 
-
 global.suittag = ["212707400335"]
 global.prems = ["212707400335"]
 
@@ -32,7 +31,17 @@ global.wm = "DELTABOT 𝖡𝖸 ALFA"
 global.igfg = "DELTABOT 𝖡𝖸 ALFA"
 global.wait = "*[❗] سوف يتم تلبية طلبكم بعد قليلا المرجو الانتظار قليلا ...*"
 
-global.keysZens = ['LuOlangNgentot', 'c2459db922', '37CC845916', '6fb0eff124', 'hdiiofficial', 'fiktod', 'BF39D349845E', '675e34de8a', '0b917b905e6f']
+global.keysZens = [
+  "LuOlangNgentot",
+  "c2459db922",
+  "37CC845916",
+  "6fb0eff124",
+  "hdiiofficial",
+  "fiktod",
+  "BF39D349845E",
+  "675e34de8a",
+  "0b917b905e6f",
+]
 
 global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())]
 global.keysxteammm = [
@@ -48,7 +57,6 @@ global.keysxteam = keysxteammm[Math.floor(keysxteammm.length * Math.random())]
 global.keysneoxrrr = ["5VC9rvNx", "cfALv5"]
 global.keysneoxr = keysneoxrrr[Math.floor(keysneoxrrr.length * Math.random())]
 global.lolkeysapi = ["BrunoSobrino"]
-
 ;(global.APIs = {
   xteam: "https://api.xteam.xyz",
   dzx: "https://api.dhamzxploit.my.id",
@@ -467,8 +475,8 @@ global.time = d.toLocaleString(locale, {
 global.wm2 = `▸ ${days} ${date}\n▸ ᴛʜᴇ ᴅᴇʟᴛᴀ - ʙᴏᴛ`
 global.gt = "DELTABOT 𝖡𝖸 ALFA"
 global.deltabot = "DELTABOT 𝖡𝖸 ALFA"
-global.md = "https://github.com/hicham-pkg/Delta_Bot_V1"
-global.deltabot = "https://github.com/hicham-pkg/Delta_Bot_V1"
+global.md = "https://github.com/hicham-pkg/Delta_Bot_V2"
+global.deltabot = "https://github.com/hicham-pkg/Delta_Bot_V2"
 global.waitt = "*[❗]  المرجو الانتظار ...*"
 global.waittt = "*[❗] المرجو الانتظار ...*"
 global.waitttt = "*[❗] المرجو الانتظار قليلا...*"

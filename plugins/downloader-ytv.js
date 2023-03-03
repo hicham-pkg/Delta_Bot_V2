@@ -2,7 +2,7 @@ import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
 import fetch from 'node-fetch'
 let handler = async (m, { conn, args }) => {
 if (!args[0]) throw '*[❗𝐈𝐍𝐅𝐎❗] أدخل الأمر بالإضافة إلى رابط فيديو youtube*'
-await m.reply(`*_⏳المرجو الانتظار...⏳_*\n\n*◉ إذا لم يتم إرسال الفيديو الخاص بك ، فجرب الأمر #playdoc ᴏ #play.2 ᴏ #ytmp4doc ◉*`)
+await m.reply(`*_⏳المرجو الانتظار...⏳_*\n\n*◉ إذا لم يتم إرسال الفيديو الخاص بك ، فجرب الأمر #playdoc or #play.2 or #ytmp4doc ◉*`)
 try {
 let qu = args[1] || '360'
 let q = qu + 'p'

@@ -2,7 +2,7 @@ import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper'
 import fetch from 'node-fetch'
 let handler = async (m, { conn, args }) => {
 if (!args[0]) throw '*[❗𝐈𝐍𝐅𝐎❗] أدخل الأمر بالإضافة إلى رابط فيديو youtube*'
-await m.reply(`*_⏳أرجو الإنتظار...⏳_*\n\n*◉ إذا لم يتم إرسال الصوت الخاص بك ، فجرب الأمر=> #playdoc ᴏ #play.2 ᴏ #ytmp4doc ◉*`)
+await m.reply(`*_⏳أرجو الإنتظار...⏳_*\n\n*◉ إذا لم يتم إرسال الصوت الخاص بك ، فجرب الأمر=> #playdoc or #play.2 or #ytmp4doc ◉*`)
 try {
 let q = '128kbps'
 let v = args[0]

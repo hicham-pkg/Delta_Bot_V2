@@ -8,10 +8,10 @@ let teks = [...video ].map(v => {
 switch (v.type) {
 case 'video': {
 listSections.push([`${v.title}`, [
-['Video 🎥', `${usedPrefix}ytmp4 ${v.url}`, `descargar: ${v.title} (${v.url})`],
-['Videodoc 🎥', `${usedPrefix}ytmp4doc ${v.url}`, `descargar: ${v.title} (${v.url})`],    
-['Audio 🎧', `${usedPrefix}ytmp3 ${v.url}`, `descargar: ${v.title} (${v.url})`],
-['Audiodoc 🎧', `${usedPrefix}ytmp3doc ${v.url}`, `descargar: ${v.title} (${v.url})`]
+['Video 🎥', `${usedPrefix}ytmp4 ${v.url}`, `discharge: ${v.title} (${v.url})`],
+['Videodoc 🎥', `${usedPrefix}ytmp4doc ${v.url}`, `discharge: ${v.title} (${v.url})`],    
+['Audio 🎧', `${usedPrefix}ytmp3 ${v.url}`, `discharge: ${v.title} (${v.url})`],
+['Audiodoc 🎧', `${usedPrefix}ytmp3doc ${v.url}`, `discharge: ${v.title} (${v.url})`]
 ]])
 }}}).filter(v => v).join('\n\n========================\n\n')
 conn.sendList(m.chat, ' 『 الموسيقى ذات الصلة 』', `الموسيقى المتعلقة: ${args.join(" ")}`, 'اختر خيارًا واضغط على إرسال', '[♦ النتائج ♦]', listSections, m)
@@ -30,7 +30,7 @@ listSerch.push({title: x.title, description: null, rowId: `${usedPrefix}ytmp3 ht
 listSerch2.push({title: x.title, description: null, rowId: `${usedPrefix}ytmp4 https://www.youtube.com/watch?v=${x.videoId}`})
 listSerch3.push({title: x.title, description: null, rowId: `${usedPrefix}ytmp3doc https://www.youtube.com/watch?v=${x.videoId}`})
 listSerch4.push({title: x.title, description: null, rowId: `${usedPrefix}ytmp4doc https://www.youtube.com/watch?v=${x.videoId}`})}
-const listMessage = { text: teskd, footer: '𝐄𝐥𝐢𝐣𝐚 𝐮𝐧𝐚 𝐨𝐩𝐜𝐢𝐨𝐧 𝐲 𝐩𝐫𝐞𝐜𝐢𝐨𝐧𝐞 𝐄𝐧𝐯𝐢𝐚𝐫', title: " 『 𝗠𝗨𝗦𝗜𝗖𝗔 𝗥𝗘𝗟𝗔𝗖𝗜𝗢𝗡𝗔𝗗𝗔 』", buttonText: "[♦ 𝐑𝐄𝐒𝐔𝐋𝐓𝐀𝐃𝐎𝐒 ♦]", sections }
+const listMessage = { text: teskd, footer: 'Choose an option and press send', title: " 『 Related music 』", buttonText: "[♦ Results ♦]", sections }
 conn.sendMessage(m.chat, listMessage, { quoted: m })    
 } catch {    
 await m.reply('*[❗𝐈𝐍𝐅𝐎❗] خطأ ، يرجى المحاولة مرة أخرى باسم أغنية أخرى*')

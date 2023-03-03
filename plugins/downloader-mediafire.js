@@ -1,6 +1,7 @@
 import { mediafiredl } from '@bochilteam/scraper'
 import axios from 'axios'
 import fetch from 'node-fetch'
+import cheerio from 'cheerio'
 let handler = async (m, { conn, args, usedPrefix, command }) => {
 if (!args[0]) throw `*[❗𝐈𝐍𝐅𝐎❗] أدخل رابط ميديافاير صالحًا ، مثال: ${usedPrefix + command} https://www.mediafire.com/file/89302/Delta-Bot_%25442529.zip/file*`
 try {
@@ -8,7 +9,7 @@ let json = await mediafireDl2(args[0])
 let caption = `
 *📓 اسم:* ${json[0].nama.replace('+', ' ')}
 *📁 حجم:* ${json[0].size}
-*📄 𝚃𝙸𝙿𝙾:* ${json[0].mime.toUpperCase()}
+*📄 نوع:* ${json[0].mime.toUpperCase()}
 
 *⏳ انتظر بينما أرسل ملفك ...* 
 `.trim()   
@@ -21,7 +22,7 @@ let { url, url2, filename, ext, aploud, filesize, filesizeH } = await res
 let caption = `
 *📓 اسم:* ${filename}
 *📁 حجم:* ${filesizeH}
-*📄 𝚃𝙸𝙿𝙾:* ${ext}
+*📄 نوع:* ${ext}
 
 *⏳ انتظر بينما أرسل ملفك ...* 
 `.trim()

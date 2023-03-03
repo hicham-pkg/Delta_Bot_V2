@@ -95,7 +95,7 @@ let handler = async (m, { conn, text, args, usedPrefix, command }) => {
           buttonId: `${usedPrefix}tomp3`,
         },
       ]
-      let cap = `*𝙽𝙸𝙲𝙺𝙽𝙰𝙼𝙴:* ${nickname || "Indefinido"}`
+      let cap = `*𝙽𝙸𝙲𝙺𝙽𝙰𝙼𝙴:* ${nickname || "Undefined"}`
       await conn.sendMessage(
         m.chat,
         { video: { url: url }, caption: cap, footer: wm, buttons },
