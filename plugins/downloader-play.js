@@ -62,11 +62,6 @@ let handler = async (m, { conn, command, args, text, usedPrefix }) => {
       },
     ];
     let buttonMessage = {
-      document: { url: "https://wa.me/212707400335" },
-      fileName: "❏ 🌿 Youtube player",
-      mimetype: "application/vnd.ms-excel",
-      caption: texto1,
-      fileLength: "99999999999999",
       mentions: [m.sender],
       footer: wm,
       buttons: buttons,
